@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL GRUP INFO FT CS BY BATARA X JOOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.jpg" alt="Logo FT" class="logo">
+        <h1>ALL GRUP INFO FT CS BY BATARA X JOOS</h1>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@ftbataraxjoos?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <!-- SLIDER -->
+        <div class="slider-container" id="touchSlider">
+            <div class="slider" id="slider">
+                <img src="1.png" alt="Slide 1">
+                <img src="FT3k.png" alt="Slide 2">
+                <img src="FT5k.png" alt="Slide 3">
+                <img src="2.png" alt="Slide 4">
+            </div>
+            <div class="slider-nav">
+                <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- DAFTAR GRUP -->
+        <div class="grup-list">
+            <div class="grup-card">
+                <img src="FT5k.png" alt="Grup 5K">
+                <div class="grup-text">GRUP FT CS 5K BATARA 🔥</div>
+                <div class="grup-option">⋮</div>
+            </div>
+            <div class="grup-card">
+                <img src="FT3k.png" alt="Grup 3K">
+                <div class="grup-text">GRUP FT CS 3K BATARA ⚡</div>
+                <div class="grup-option">⋮</div>
+            </div>
+            <div class="grup-card">
+                <img src="3.png" alt="Grup Info 14">
+                <div class="grup-text">INFO FT CS BATARA 🔥</div>
+                <div class="grup-option">⋮</div>
+            </div>
+            <div class="grup-card">
+                <img src="3.png" alt="Grup Info 14">
+                <div class="grup-text">INFO FT CS BATARA 🔥</div>
+                <div class="grup-option">⋮</div>
+            </div>
+            <div class="grup-card">
+                <img src="3.png" alt="Grup Info 14">
+                <div class="grup-text">INFO FT CS BATARA 🔥</div>
+                <div class="grup-option">⋮</div>
+            </div>
+            <div class="grup-card">
+                <img src="3.png" alt="Grup Info 14">
+                <div class="grup-text">INFO FT CS BATARA 🔥</div>
+                <div class="grup-option">⋮</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const sliderContainer = document.getElementById('touchSlider');
+        let currentIndex = 0;
+        let startX = 0;
+
+        function updateSlide() {
+            const slideWidth = sliderContainer.offsetWidth;
+            slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slider.children.length;
+            updateSlide();
+        }
+
+        window.addEventListener('resize', updateSlide);
+
+        // Mouse gesture
+        sliderContainer.addEventListener('mousedown', e => startX = e.pageX);
+        sliderContainer.addEventListener('mouseup', e => {
+            const diff = e.pageX - startX;
+            if (diff > 50) prevSlide();
+            else if (diff < -50) nextSlide();
+        });
+
+        // Touch gesture
+        sliderContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        sliderContainer.addEventListener('touchend', e => {
+            const diff = e.changedTouches[0].clientX - startX;
+            if (diff > 50) prevSlide();
+            else if (diff < -50) nextSlide();
+        });
+
+        window.onload = updateSlide;
+    </script>
+</body>
+</html>

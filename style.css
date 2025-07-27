@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2d2d2d;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 110px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    font-size: 25px;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff6600;
+}
+
+/* SLIDER */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto 25px;
+    overflow: hidden;
+    border-radius: 6px;
+    aspect-ratio: 3 / 4;
+    background: #000;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 6px;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.slider-nav button {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-nav button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    transform: scale(1.1);
+}
+
+/* GRUP CARD LIST */
+.grup-list {
+    margin-top: 20px;
+}
+
+.grup-card {
+    display: grid;
+    grid-template-columns: 60px 1fr 30px;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.grup-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.grup-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.grup-card .grup-text {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    color: #312d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.grup-card .grup-option {
+    font-size: 20px;
+    color: #aaa;
+    text-align: center;
+}
+@media screen and (max-width: 290px) {
+    .slider-container {
+        max-width: 90%;
+    }
+
+    .grup-card {
+        padding: 10px 12px;
+    }
+
+    .grup-card .grup-text {
+        font-size: 14px;
+    }
+
+    .grup-card img {
+        width: 45px;
+        height: 45px;
+    }
+}
